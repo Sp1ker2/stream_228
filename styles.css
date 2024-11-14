@@ -117,6 +117,17 @@ nav a:hover {
     transform: scale(1.1);
 }
 
+.copy-button {
+    border: none;
+    outline: none;
+    background-color: #cbc8c59a;
+}
+
+.FOP {
+    /* background-color: #cbc8c59a; */
+    width: 31%;
+}
+
 /* Детали продукта */
 .product-details {
     flex: 1;
