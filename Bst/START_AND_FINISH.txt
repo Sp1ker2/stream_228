@@ -3,9 +3,9 @@
 ╚════════════════════════════════════════════════════════════╝
 
 📍 Удаленный сервер: 195.133.17.131
-🔐 SSH: root / iFG02M6Z
+🔐 SSH: root / [установить REMOTE_PASS в config.sh]
 🌐 Веб-панель: https://195.133.17.131:16205/df2d94ee
-   Логин: th3dw0l9 / Пароль: a8188437
+   Логин: [установить PANEL_USER в config.sh] / Пароль: [установить PANEL_PASS в config.sh]
 
 ════════════════════════════════════════════════════════════
 
@@ -18,7 +18,7 @@
    ./deploy_server.sh
    
    Или вручную:
-   sshpass -p 'iFG02M6Z' ssh root@195.133.17.131 << 'EOF'
+   sshpass -p '[установить REMOTE_PASS в config.sh]' ssh root@195.133.17.131 << 'EOF'
    cd /root/screen_monitor
    source venv/bin/activate
    nohup python3 server_simple.py > server.log 2>&1 &
@@ -71,10 +71,10 @@
 
 3. 📡 ОСТАНОВИТЬ СЕРВЕР НА УДАЛЕННОМ ХОСТЕ:
    ──────────────────────────────────────────────────────
-   sshpass -p 'iFG02M6Z' ssh root@195.133.17.131 'pkill -f server_simple.py'
+   sshpass -p '[установить REMOTE_PASS в config.sh]' ssh root@195.133.17.131 'pkill -f server_simple.py'
    
    Проверка:
-   sshpass -p 'iFG02M6Z' ssh root@195.133.17.131 'ps aux | grep server_simple | grep -v grep'
+   sshpass -p '[установить REMOTE_PASS в config.sh]' ssh root@195.133.17.131 'ps aux | grep server_simple | grep -v grep'
 
 ════════════════════════════════════════════════════════════
 
@@ -90,7 +90,7 @@ pkill -f "client_live.py"
 docker-compose down
 
 # Удаленный сервер
-sshpass -p 'iFG02M6Z' ssh root@195.133.17.131 'pkill -f server_simple.py'
+sshpass -p '[установить REMOTE_PASS в config.sh]' ssh root@195.133.17.131 'pkill -f server_simple.py'
 
 echo "✅ Все остановлено!"
 
@@ -124,7 +124,7 @@ echo "✅ Все запущено!"
    docker ps | grep screen_monitor
 
 3. Проверить удаленный сервер:
-   sshpass -p 'iFG02M6Z' ssh root@195.133.17.131 'ps aux | grep server_simple | grep -v grep'
+   sshpass -p '[установить REMOTE_PASS в config.sh]' ssh root@195.133.17.131 'ps aux | grep server_simple | grep -v grep'
    
    Или проверить доступность:
    curl http://195.133.17.131:6789
@@ -158,7 +158,7 @@ docker logs screen_monitor_ivan
 docker logs screen_monitor_maria
 
 Удаленный сервер:
-sshpass -p 'iFG02M6Z' ssh root@195.133.17.131 'tail -f /root/screen_monitor/server.log'
+sshpass -p '[установить REMOTE_PASS в config.sh]' ssh root@195.133.17.131 'tail -f /root/screen_monitor/server.log'
 
 ════════════════════════════════════════════════════════════
 

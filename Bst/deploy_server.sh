@@ -1,11 +1,17 @@
 #!/bin/bash
 # Скрипт развертывания сервера на удаленный хост
 
-REMOTE_HOST="195.133.17.131"
-REMOTE_USER="root"
-REMOTE_PASS="iFG02M6Z"
-REMOTE_DIR="/root/screen_monitor"
-REMOTE_PORT=6789
+REMOTE_HOST="${REMOTE_HOST:-195.133.17.131}"
+REMOTE_USER="${REMOTE_USER:-root}"
+REMOTE_PASS="${REMOTE_PASS}"
+REMOTE_DIR="${REMOTE_DIR:-/root/screen_monitor}"
+REMOTE_PORT="${REMOTE_PORT:-6789}"
+
+if [ -z "$REMOTE_PASS" ]; then
+    echo "❌ Ошибка: установите переменную REMOTE_PASS"
+    echo "   export REMOTE_PASS='ваш_пароль'"
+    exit 1
+fi
 
 echo "🚀 Развертывание сервера на $REMOTE_HOST..."
 

@@ -45,6 +45,9 @@ Thumbs.db
 
 # Config
 config_local.json
+config.sh
+*.secret
+secrets.txt
 
 
 

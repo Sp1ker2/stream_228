@@ -19,7 +19,11 @@ docker-compose down 2>&1 | grep -E "Stopping|Removing" && echo "   ✅ Docker к
 
 # Удаленный сервер
 echo "   Остановка удаленного сервера..."
-sshpass -p 'iFG02M6Z' ssh -o StrictHostKeyChecking=no root@195.133.17.131 'pkill -f server_simple.py' 2>&1 && echo "   ✅ Удаленный сервер остановлен" || echo "   ⚠️  Удаленный сервер не найден"
+if [ -n "$REMOTE_PASS" ]; then
+    sshpass -p "$REMOTE_PASS" ssh -o StrictHostKeyChecking=no ${REMOTE_USER:-root}@${REMOTE_HOST:-195.133.17.131} 'pkill -f server_simple.py' 2>&1 && echo "   ✅ Удаленный сервер остановлен" || echo "   ⚠️  Удаленный сервер не найден"
+else
+    echo "   ⚠️  REMOTE_PASS не установлен, пропускаю удаленный сервер"
+fi
 
 sleep 1
 
